@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './layouts/Header';
 import CategoryList from './pages/CategoryList';
 import BlogPostList from './pages/BlogPostList';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Router>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/category-list" element={<CategoryList />} />
           <Route path="/blogPost-list" element={<BlogPostList />} />
         </Routes>
