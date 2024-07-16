@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from "react-toastify";
+import { Link } from 'react-router-dom';
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -30,7 +31,7 @@ const CategoryList = () => {
       <h1 className="mt-3">Category List</h1>
 
       <div className="d-flex justify-content-end mt-3">
-        <button className="btn btn-primary">Add Category</button>
+      <Link to="/add-category" className="btn btn-primary">Add Category</Link>
       </div>
 
       <table className="table table-bordered mt-3">
