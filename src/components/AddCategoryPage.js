@@ -34,13 +34,17 @@ const AddCategoryPage = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const handleCancel = () => {
+    navigate('/category-list');
+  };
+
   return (
-    <div classNameName="container">
-      <h1 classNameName="mt-3">Add Category</h1>
+    <div className="container">
+      <h1 className="mt-3">Add Category</h1>
 
       <form onSubmit={craeteCategory}>
-        <div classNameName="mt-2">
-          <div classNameName="mt-3">
+        <div className="mt-2">
+          <div className="mt-3">
             <label className="form=label">Category Name</label>
             <input 
                 type="text" 
@@ -61,8 +65,9 @@ const AddCategoryPage = () => {
             />
           </div>
 
-          <div className="mt-3">
-            <button type="submit" className="btn btn-primary">Save</button>
+          <div className="mt-3 d-flex justify-content-center">
+            <button type="submit" className="btn btn-primary me-2">Save</button>
+            <button type="button" className="btn btn-secondary ms-2" onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       </form>
