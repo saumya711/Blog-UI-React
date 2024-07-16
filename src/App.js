@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
 
 import Header from './layouts/Header';
 import CategoryList from './pages/CategoryList';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/blogPost-list" element={<BlogPostList />} />
         </Routes>
       </Router>
+      {/* <ToastContainer /> */}
     </div>
   );
 }
