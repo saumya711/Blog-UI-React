@@ -23,7 +23,7 @@ const AddCategoryPage = () => {
       try {
         await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/Categories`, newFormData);
         toast.success("Create a category successfully");
-        navigate('/category-list');
+        navigate('/admin/category-list');
       } catch (error) {
         toast.error(error.message);
       }
@@ -35,7 +35,7 @@ const AddCategoryPage = () => {
   };
 
   const handleCancel = () => {
-    navigate('/category-list');
+    navigate('/admin/category-list');
   };
 
   return (

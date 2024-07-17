@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllCategories();
@@ -26,12 +29,16 @@ const CategoryList = () => {
     console.log(categories); 
   }
 
+  const editCategory = (id) => {
+    navigate(`/admin/edit-category/${id}`);
+  }
+
   return (
     <div className="container">
       <h1 className="mt-3">Category List</h1>
 
       <div className="d-flex justify-content-end mt-3">
-      <Link to="/add-category" className="btn btn-primary">Add Category</Link>
+      <Link to="/admin/add-category" className="btn btn-primary">Add Category</Link>
       </div>
 
       <table className="table table-bordered mt-3">
@@ -50,7 +57,7 @@ const CategoryList = () => {
               <td>{category.name}</td>
               <td>{category.urlHandle}</td>
               <td>
-                <button className="btn btn-light">
+                <button className="btn btn-light" onClick={() => editCategory(category.id)}>
                   Edit
                 </button>
               </td>
