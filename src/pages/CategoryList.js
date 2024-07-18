@@ -18,19 +18,30 @@ const CategoryList = () => {
     setIsLoading(true);
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/Categories`);
-      console.log(data);
+      // console.log(data);
       setCategories(data);
       setIsLoading(false);
     } catch (error) {
       toast.error(error.message);
       console.log(error);
       setIsLoading(false);
-    }
-    console.log(categories); 
+    } 
   }
 
   const editCategory = (id) => {
     navigate(`/admin/edit-category/${id}`);
+  }
+
+  const deleteCategory = async(id) => {
+    if (window.confirm("Are you sure you want to delete this category?")) {
+      try {
+        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/Categories/${id}`);
+        toast.success("Category deleted successfully");
+        getAllCategories();
+      } catch (error) {
+        toast.error(error.message);
+      }
+    }
   }
 
   return (
@@ -57,8 +68,11 @@ const CategoryList = () => {
               <td>{category.name}</td>
               <td>{category.urlHandle}</td>
               <td>
-                <button className="btn btn-light" onClick={() => editCategory(category.id)}>
+                <button className="btn btn-secondary" onClick={() => editCategory(category.id)}>
                   Edit
+                </button>
+                <button className="btn btn-danger ms-3" onClick={() => deleteCategory(category.id)}>
+                  Delete
                 </button>
               </td>
             </tr>
