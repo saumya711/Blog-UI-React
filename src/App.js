@@ -10,6 +10,7 @@ import BlogPostList from './pages/BlogPostList';
 import Home from './pages/Home';
 import AddCategoryPage from './components/category/AddCategoryPage';
 import EditCategoryPage from './components/category/EditCategoryPage';
+import AddBlogPost from './components/blogposts/AddBlogPost';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/admin/blogPost-list" element={<BlogPostList />} />
           <Route path="/admin/add-category" element={<AddCategoryPage />} />
           <Route path="/admin/edit-category/:id" element={<EditCategoryPage />} />
+          <Route path="/admin/add-blogPost" element={<AddBlogPost />} />
         </Routes>
       </Router>
       <ToastContainer />

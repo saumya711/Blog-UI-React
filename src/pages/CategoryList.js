@@ -18,7 +18,7 @@ const CategoryList = () => {
     setIsLoading(true);
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/Categories`);
-      // console.log(data);
+      console.log(data);
       setCategories(data);
       setIsLoading(false);
     } catch (error) {
