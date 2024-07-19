@@ -30,7 +30,7 @@ const BlogPostList = () => {
       <h1 className="mt-3">BlogPost List</h1>
 
       <div className="d-flex justify-content-end mt-3">
-          <a  className="btn btn-primary">Add BlogPost</a>
+        <Link to="/admin/add-blogPost" className="btn btn-primary">Add BlogPost</Link>
       </div>
       <table className="table table-bordered mt-3">
         <thead>
