@@ -30,7 +30,7 @@ const AddBlogPost = () => {
         e.preventDefault();
         console.log(values);
         try {
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/Blogs`, values);
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/blogPost`, values);
             toast.success("Blog post created successfully");
             navigate('/admin/blogPost-list');
         } catch (error) {

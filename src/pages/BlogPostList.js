@@ -15,7 +15,7 @@ const BlogPostList = () => {
 
   const getAllBlogPosts = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/Blogs`);
+      const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/blogPost`);
       console.log(data);
       setBlogPosts(data);
       setIsLoading(false);
@@ -42,15 +42,15 @@ const BlogPostList = () => {
         </thead>
         <tbody>
           {blogPosts.map((blogPost) => (
-            <tr key={blogPost.id}>
+            <tr key={blogPost._id}>
               <td>{blogPost.title}</td>
               <td>{blogPost.shortDescription}</td>
               <td>{blogPost.isVisible ? 'True' : 'False'}</td>
               {/* <td>
-                <button className="btn btn-secondary" onClick={() => editCategory(category.id)}>
+                <button className="btn btn-secondary" >
                   Edit
                 </button>
-                <button className="btn btn-danger ms-3" onClick={() => deleteCategory(category.id)}>
+                <button className="btn btn-danger ms-3">
                   Delete
                 </button>
               </td> */}
