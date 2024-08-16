@@ -11,14 +11,16 @@ const EditCategoryPage = () => {
       });
     const navigate = useNavigate();
     const { id } = useParams();
+    console.log(id);
 
     useEffect(() => {
         getSingleCategory()
     }, []);
 
     const getSingleCategory = async () => {
+        console.log(id);
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/Categories/${id}`);
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/category/${id}`);
             setValues({ id: data.id, Name: data.name, urlHandle: data.urlHandle });
           } catch (error) {
             toast.error(error.message);
@@ -28,8 +30,8 @@ const EditCategoryPage = () => {
     const updateCategory = async (event) => {
         event.preventDefault();
         try {
-          await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/Categories/${id}`, {
-            Name: values.Name,
+          await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/category/${id}`, {
+            name: values.Name,
             urlHandle: values.urlHandle
           });
           toast.success("Category updated successfully");
